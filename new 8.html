@@ -1,0 +1,41 @@
+<?php 
+	//check if the form is submmited
+	if($_POST){
+		//get the input values
+		$percent = $_POST['percent'];
+		$number = $_POST['number'];
+		// slash(/) symbol is for dividing values, star * symbol for multiplication
+		$answer =  ($percent / 100) * $number;
+	}
+?>
+<html>
+<head>
+<title>PHP Percentage Calculator script</title>
+</head>
+<body>
+	<h2>PHP Percentage Calculate Tutorial - by <a href="http://www.tutorialsmade.com/php-percentage-calculator-script/">Tutorialsmade.com</a></h2>
+	<!-- action is blank, which means it will submit in the same page -->
+	<form action="" method="post">
+		<!-- isset() is used to check if the variable is set or not-->
+		<input size="7" type="text" name="percent" value="<?php echo isset($percent) ? $percent : '';?>" /> % of <input size="10" type="text" name="number" value="<?php echo isset($number) ? $number : '';?>" /> = <input size="14" type="text" name="a-ans" value="<?php echo isset($answer) ? $answer: ''; ?>" class="disabled-cursor" disabled />
+		<input value="Calculate" type="submit"  />
+	</form>
+	<h4>GOLD PLAN</h4>
+                            <hr>
+                            <p class="groom-right text-left">Make <b>4.2%</b> of your investment daily for <b>7days</b>.
+                                At the end of 7days what you will get is <b>30%</b> of your capital as profit.<br>
+                                <hr>
+                                <div class="row">
+                                   <div class="col-xs-6 p-2">
+                                      <input id="g-inv" type="number" step="0.001" class="form-control" placeholder="Investment (USD)" />
+                                   </div>
+                                   <div class="col-xs-6 p-2">
+                                      <input id="g-amt" type="number" step="0.001" class="form-control" placeholder="Withdrawal (USD)" readonly />
+                                   </div> 
+                                </div>
+                                <hr><a class="btn btn-block btn-primary" href="{{ url('/register?plan=0') }}">Join Plan</a>
+                            </p>
+                        </div>
+</body>
+
+</html>
